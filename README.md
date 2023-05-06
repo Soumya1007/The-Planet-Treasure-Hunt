@@ -35,6 +35,6 @@ const firebaseConfig = {
 4. All the progress / user data (eg - time taken by each user for every step, solution accuracy, etc.) depending on  puzzle requirements stored for every user- Yes
 5.A dashboard for the admin where the progress of all the users can be tracked & analyzed- Yes
 6. On Clicking at Home, the puzzle should start from the same step or give the user an option to restart- Yes
-Additional Requirements
+# Additional Requirements
 1.User analytics (eg - time taken by each user for every step, solution accuracy, etc.) depending on your puzzle should be stored and shown in the admin dashboard- Yes
 2. Leaderboard- Yes
