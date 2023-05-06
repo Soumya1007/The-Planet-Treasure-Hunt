@@ -8,15 +8,15 @@ This is a interactive puzzle designed to assess soft skills of a person and thos
 5. Self Confidence
 6. Critical Thinking
 7. Creativity.
-#information about the Game
+# Information about the Game
 This is a game where you go to 8 different planets and try to solve some tricky questions about our solar system. Whenever you solve a question you will be redirected to another planet. After solving the last question you will find the treasure you are looking for.
 #All the Possible ways to Solve
 Whenever you will land on a planet you will have to give the exact answer and you will get 3 chances. After the 3 chances you will be redirected to the starting page and you have to start again. 
-#Dead Ends
+# Dead Ends
 Since this is quite a tricky puzzle there will be clues to help you to solve them. But there will be clues on planet 4th and planet 7th that will lead you to a trap.The trap file have a go back button that will redirect you to the 4th or 7th planet. You have to think harder to solve those problems.
-#Technologies
+# Technologies
 I used HTML , CSS and JavaScript to set up the project and make it responsive. Html and Css made this website interactive and Javascript provided the fuctionalities to be performed on user action. To authenticate user and save user's information like email, name, accuracy and time taken , I used Firebase authentication and realtime database.
-#Steps to set up the project
+# Steps to set up the project
 To set up the project simply download the files from gitHub. After downloading the files go to firebase and make a project with whatever name you ma like. After setting up the project add you configuration in the project instead of my configuration.
 Configuration looks like this:-
 const firebaseConfig = {
@@ -28,7 +28,7 @@ const firebaseConfig = {
   messagingSenderId: "",
   appId: ""
 };
-#Features List
+# Features List
 1. Minimum 5 clues - Yes
 2. Minimum 2 deadends- Yes
 3. Minimum 1 solution- Yes
