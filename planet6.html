@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        Saturn
+        </title>
+        <link rel="stylesheet" href="style/planet.css">
+        <body>
+            <header>
+                <a href="index.html"><img src="images/spaceship.png" alt="spaceship" class="pic-1"></a>
+                <nav>
+                  <ul>
+                    <li><a id="Home" href="main.html">Home</a></li>
+                    <li><a href="leaderboard.html">LeaderBoard</a></li>
+                  </ul>
+                </nav>
+              </header>
+
+              <section class="hero">
+                <div class="container-1">
+                  <h2>Welcome to Saturn. </h2>
+                  <p>This is level 6.</p>
+                </div>
+              </section>
+         
+              <section class="container-2">
+                <div class="float-parent-element">
+                
+                  <div class="float-child-element1">
+                    <div class="about-1"><img src="images/saturn.png" alt="solar-system" class="pic-2"></div>
+                  </div>
+                  <div class="float-child-element2">
+                    <h1></h1>
+                    <div class="about-2">
+                    
+                        <label class="label1">QUESTION 6. Saturn is famous for the ring system. But a new planet is discovered with the most number of rings . Name the planet.</label><br>
+                        <input class="input1" type="text">
+                        <br>
+                        <span>HINT</span>
+                        <a target="_blank" href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fexoplanets.nasa.gov%2Frails%2Factive_storage%2Fblobs%2FeyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdkVMIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b3064a58aed8f7cd5321c0b2b5de73fa55a31616%2Fj1407_ronmiller_2015_0(S).jpg&tbnid=tU8vNSCnKmeRuM&vet=12ahUKEwi4qr_2-d3-AhVnxHMBHbooA7sQMygAegUIARDjAQ..i&imgrefurl=https%3A%2F%2Fexoplanets.nasa.gov%2Fresources%2F242%2Fj1407b-super-saturn%2F&docid=cPE1Dd0Qi6ISTM&w=540&h=241&q=J1407b&ved=2ahUKEwi4qr_2-d3-AhVnxHMBHbooA7sQMygAegUIARDjAQ">Look into this image.</a>
+                        <br>
+                       <button class="btn cta">Submit</button>
+              
+                    </div>
+                  </div>
+                </div>
+                </section>
+                <footer>
+                  <p>&copy; 2023 The Planet Treasure Hunt. All rights reserved.</p>
+                </footer>
+
+
+
+                <script type="module">
+                  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+                  import {
+                      getAuth,
+                      createUserWithEmailAndPassword,
+                      signInWithEmailAndPassword,
+                      onAuthStateChanged,
+                      signOut
+                  //Update the below URL with the appropriate version if necessary.
+                  } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+                  import { getDatabase ,ref, set} from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js';
+                  // INSERT YOUR FIREBASE CONFIG OBJECT HERE
+                  
+                  const firebaseConfig = {
+        apiKey: "AIzaSyAvv3RDUXOG8eAK-MM2dn3GzCc7QLhRa2Y",
+      authDomain: "treasure-hunt-6f786.firebaseapp.com",
+      databaseURL: "https://treasure-hunt-6f786-default-rtdb.firebaseio.com",
+      projectId: "treasure-hunt-6f786",
+      storageBucket: "treasure-hunt-6f786.appspot.com",
+      messagingSenderId: "662794863945",
+      appId: "1:662794863945:web:8eb23cf24168d01e6f8698"
+      };
+      
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const database = getDatabase(app);
+    
+
+
+                  
+      document.querySelector('img').onclick = function () {
+    window.open('main.html');
+};
+
+
+let input = document.querySelector('input');
+let btn = document.querySelector('button');
+
+let correct = 0, total = 0;
+let accuracy = 0.0;
+let start = Date.now();
+let timeTaken=0;
+let chance=3;
+
+btn.onclick = function () {
+
+    var ok = false;
+   
+    let answerString = input.value.toString().toLowerCase();
+    total++;
+    if (answerString.length == 0) {
+        alert('Invalid input');
+    }
+    else if (answerString == "J1407b".toLowerCase().trim()) {
+        ok=true;
+        correct++;
+        timeTaken = Date.now() - start;
+
+        document.querySelector('h1').innerHTML="Total time taken : " + timeTaken/1000 + " seconds";
+        
+    } else {
+        alert('Oops! wrong answer');
+        if(total>3)
+    {
+      alert("You answered wrong more than three times. Start again");
+      window.location.href='main.html';
+    }
+    else{
+      document.querySelector('h1').innerHTML="You have " + chance + " attempts to solve this problem.";
+    }
+    }
+     
+   
+    chance--;
+    accuracy = (correct/total)*100;
+    uploadData(accuracy,timeTaken,ok);
+
+}
+
+
+ function uploadData(accuracy,timeTaken,ok){
+    onAuthStateChanged(auth, async(user) => {
+        if (user) {
+            var uid = user.uid;
+           await  set(ref(database, 'data/' + uid+ '/clue6'), {
+               accuracy:accuracy,
+               timeTaken:timeTaken
+              });
+            if(ok){
+              window.setTimeout(function(){
+
+               // Move to a new location or you can do something else
+                window.location.href =( "planet7.html");
+
+                }, 1000);
+               
+            }
+        } else {
+            alert('data not uploaded');
+        }
+    });
+}
+                    </script>
+        </body>
+    </head>
+</html>

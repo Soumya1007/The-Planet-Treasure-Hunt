@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaderBoard</title>
+    <link rel="stylesheet" href="style/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+     
+    <h1>Leader Board</h1>
+    
+        <div >
+            <table id="table" class="table table-bordered">
+               <thead class="table-dark">
+                
+              
+                <tr>
+                    <th colspan="2"  class="thh">User Details</th>
+                    <th colspan="1"  class="thh">Accuracy</th>
+                    <th colspan="1"  class="thh">Time(in milliseconds)</th>
+                </tr>
+                <tr>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>Percetage</th>
+                    <th>In seconds</th>
+                    
+                   
+                </tr>
+            </thead>
+            </table>
+        </div>
+
+  
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        //Update the below URL with the appropriate version if necessary.
+        } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+        import { getDatabase ,ref,onValue} from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js';
+    
+        
+        // INSERT YOUR FIREBASE CONFIG OBJECT HERE
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvv3RDUXOG8eAK-MM2dn3GzCc7QLhRa2Y",
+          authDomain: "treasure-hunt-6f786.firebaseapp.com",
+          databaseURL: "https://treasure-hunt-6f786-default-rtdb.firebaseio.com",
+          projectId: "treasure-hunt-6f786",
+          storageBucket: "treasure-hunt-6f786.appspot.com",
+          messagingSenderId: "662794863945",
+          appId: "1:662794863945:web:8eb23cf24168d01e6f8698"
+          };
+          
+          const app = initializeApp(firebaseConfig);
+          const auth = getAuth(app);
+          const database = getDatabase(app);
+
+
+
+          window.onload = async () => {
+    let obj = await ref(database,'data');
+    let table = document.getElementById('table');
+
+    onValue(obj, (snapshot) => {
+        let data = snapshot.val();
+
+        for (var uid in data) {
+            let currUser = ref(database,'data/'+uid);            
+            var newTr = document.createElement('tr');
+          
+
+            onValue(currUser,(snapshot)=>{
+                let currUser = snapshot.val();
+
+                var td = document.createElement('td');
+                td.innerHTML = currUser.name;
+                newTr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = currUser.email;
+                newTr.appendChild(td);
+
+                let count=0;
+                let total=0;
+                for(var clue in currUser){
+                    if(count==8){
+                        continue;
+                    }    
+                    let clueData = ref(database,'data/'+uid+'/'+clue);
+
+                    onValue(clueData,(snapshot)=>{
+                        let currClue = snapshot.val();
+                        var accuracy = currClue.accuracy;
+                       total+=accuracy;
+                       
+                    })
+                    count++;
+                }
+                  var td = document.createElement('td');
+                        td.innerHTML=total/8;
+                        newTr.appendChild(td);
+                 count=0;
+                total=0;
+                for(var clue in currUser){
+                    if(count==8){
+                        continue;
+                    }    
+                    let clueData= ref(database,'data/'+uid+'/'+clue);
+
+                    onValue(clueData,(snapshot)=>{
+                        let currClue = snapshot.val();
+                        var timeTaken = currClue.timeTaken;
+                       total+=timeTaken
+                       
+                    })
+                    count++;
+                }
+                var td = document.createElement('td');
+                        td.innerHTML=total/1000;
+                        newTr.appendChild(td);
+               
+            })
+            table.appendChild(newTr);
+        }
+
+    })
+}
+
+    </script>    
+</body>
+
+</html>
+

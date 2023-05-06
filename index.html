@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style/login.css">
+</head>
+
+<body>
+    <div class="container">
+      <h1 class="brand">Login</h1>
+      <div class="wrapper">
+        <div class="company-info">
+  
+  
+        </div>
+        <div class="contact">
+         
+          <form id="contactForm">
+            <p>
+              <label>Email Address</label>
+              <input type="email" name="email" id="email" required>
+            </p>
+            <p>
+              <label>Password</label>
+              <input type="password" name="phone" id="password">
+            </p>
+            <p class="full">
+              <button type="submit">LOGIN</button>
+            </p>
+          </form>
+          <p>
+            <a href="signup.html">Create Account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+//Update the below URL with the appropriate version if necessary.
+} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+document.querySelector('a').onclick = function () {
+    window.location.href = 'signup.html';
+}
+// INSERT YOUR FIREBASE CONFIG OBJECT HERE
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAvv3RDUXOG8eAK-MM2dn3GzCc7QLhRa2Y",
+  authDomain: "treasure-hunt-6f786.firebaseapp.com",
+  databaseURL: "https://treasure-hunt-6f786-default-rtdb.firebaseio.com",
+  projectId: "treasure-hunt-6f786",
+  storageBucket: "treasure-hunt-6f786.appspot.com",
+  messagingSenderId: "662794863945",
+  appId: "1:662794863945:web:8eb23cf24168d01e6f8698"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  
+
+// Listen for form submit
+document.querySelector('button').addEventListener('click', submitForm);
+
+// Submit form
+function submitForm(e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    if(email=='soumya@details.com'){
+        if(password=='password'){
+            window.location.href = 'details.html';
+        }else{
+            alert('Wrong Password');
+        }
+        return;
+    }
+
+    // create user
+    loginUser(email, password);
+}
+
+
+// Save message to firebase
+function loginUser(email, password) {
+    signInWithEmailAndPassword(auth,email, password)
+        .then((userCredential) => {
+            // Signed in
+            var user = userCredential.user;
+            alert("You have signed in successfully!");
+            // Clear form
+           
+            document.getElementById('contactForm').reset();
+            window.location.href='main.html';
+          
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            alert(errorCode, errorMessage);
+        });
+}
+
+  </script>
+</body>
+
+</html>

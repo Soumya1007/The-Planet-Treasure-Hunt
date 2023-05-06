@@ -1,0 +1,37 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+  }
+
+div{
+  align-items: center;
+  margin-left: 15%;
+  margin-top: 15%;
+  padding: 30px;
+  width: 70%;
+  background-color: #2D033B;
+  text-align: center;
+}
+h1,h2
+{
+    padding-top: 20px;
+    text-align: center;
+    margin: 20px;
+}
+
+button
+{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+}
