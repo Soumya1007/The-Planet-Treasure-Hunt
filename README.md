@@ -1,5 +1,5 @@
 # The Planet Treasure Hunt
-This is a interactive puzzle designed to assess soft skills of a person and those questions are related to the planets of our solar system. This puzzle consists of some medium-hard questions that will assess what qualities do you have. It will take some critical thinking and eye for detail to solve the puzzles asked. The accuracy and time taken by the user will be recorded and shown on the leader board.
+This is a interactive puzzle designed to assess soft skills of a person. Questions in this treasure hunt are related to the planets of our solar system. This puzzle consists of some medium-hard questions that will assess what qualities do you have. It will take some critical thinking and eye for detail to solve the puzzles asked. The accuracy and time taken by the user will be recorded and shown on the leaderboard.
 # Soft Skills to be assessed
 1. Out of the box thinking.
 2. Consistency.
