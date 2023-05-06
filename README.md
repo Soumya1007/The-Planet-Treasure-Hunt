@@ -8,6 +8,7 @@ This is a interactive puzzle designed to assess soft skills of a person. Questio
 5. Self Confidence
 6. Critical Thinking
 7. Creativity.
+8. Hardworking
 # Information about the Game
 This is a game where you go to 8 different planets and try to solve some tricky questions about our solar system. Whenever you solve a question you will be redirected to another planet. After solving the last question you will find the treasure you are looking for.
 #All the Possible ways to Solve
