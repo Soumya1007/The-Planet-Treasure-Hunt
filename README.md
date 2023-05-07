@@ -37,7 +37,7 @@ const firebaseConfig = {
 5.A dashboard for the admin where the progress of all the users can be tracked & analyzed- Yes
 6. On Clicking at Home, the puzzle should start from the same step or give the user an option to restart- Yes
 # Additional Requirements
-1.User analytics (eg - time taken by each user for every step, solution accuracy, etc.) depending on your puzzle should be stored and shown in the admin dashboard- Yes
+1 .User analytics (eg - time taken by each user for every step, solution accuracy, etc.) depending on your puzzle should be stored and shown in the admin dashboard- Yes
 2. Leaderboard- Yes
 # Link to the final project
 https://vermillion-lollipop-f863f9.netlify.app   . 
