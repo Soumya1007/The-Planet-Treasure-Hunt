@@ -42,7 +42,7 @@ To set up the project simply download the files from gitHub. After downloading t
 # Link to the final project
 https://vermillion-lollipop-f863f9.netlify.app   . 
 # I hope you all will love this treasure hunt.
-# Answes to the puzzle
+# Answers to the puzzle
 1. Planet 1-sunshine
 2. Planet 2-91
 3. Planet 3-Suomi NPP
