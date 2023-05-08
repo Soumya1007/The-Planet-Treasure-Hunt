@@ -42,3 +42,12 @@ To set up the project simply download the files from gitHub. After downloading t
 # Link to the final project
 https://vermillion-lollipop-f863f9.netlify.app   . 
 # I hope you all will love this treasure hunt.
+# Answes to the puzzle
+1. Planet 1-sunshine
+2. Planet 2-91
+3. Planet 3-Suomi NPP
+4. Planet 4-267.22 million km
+5. Planet 5-grand tack hypothesis
+6. Planet 6-J1407b
+7. Planet 7-William Herschel
+8. Planet 8-barycentric
