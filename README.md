@@ -16,19 +16,19 @@ Whenever you will land on a planet you will have to give the exact answer and yo
 # Dead Ends
 Since this is quite a tricky puzzle there will be clues to help you to solve them. But there will be clues on planet 4th and planet 7th that will lead you to a trap.The trap file have a go back button that will redirect you to the 4th or 7th planet. You have to think harder to solve those problems.
 # Technologies
-I used HTML , CSS and JavaScript to set up the project and make it responsive. Html and Css made this website interactive and Javascript provided the fuctionalities to be performed on user action. To authenticate user and save user's information like email, name, accuracy and time taken , I used Firebase authentication and realtime database.
+I used HTML , CSS and JavaScript to set up the project and make it responsive. Html and Css made this website interactive and Javascript provided the fuctionalities to be performed on user action. To authenticate user and save user's information like email, name, accuracy and time taken , I used Firebase authentication and realtime database. The Javascript is inside the HTML body because I used current version of firebase authentication and database that includes JS inside HTMl file only.
 # Steps to set up the project
-To set up the project simply download the files from gitHub. After downloading the files go to firebase and make a project with whatever name you ma like. After setting up the project add you configuration in the project instead of my configuration.
-Configuration looks like this:-
-const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
-};
+To set up the project simply download the files from gitHub. After downloading the files go to firebase and make a project with whatever name you ma like. After setting up the project add you configuration in the project instead of my configuration. Note- The Javascript is inside the HTML body because I used current version of firebase authentication and database that includes JS inside HTMl file only.
+ Configuration looks like this:-
+ const firebaseConfig = {
+   apiKey: "",
+   authDomain: "",
+   databaseURL: "",
+   projectId: "",
+   storageBucket: "",
+   messagingSenderId: "",
+   appId: ""
+ };
 # Features List
 1. Minimum 5 clues - Yes
 2. Minimum 2 deadends- Yes
